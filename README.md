@@ -113,8 +113,8 @@ pyinstaller konstruktor_ontologiy.spec
 
 ## Скриншоты
 
-**Стартовая страница**
-![Стартовая страница](docs/screenshots/start_page.png)
+**Главное окно редактора с загруженной онтологией**
+![Главное окно редактора с загруженной онтологией](docs/screenshots/start_page.png)
 
 **Граф онтологии**
 ![Граф онтологии](docs/screenshots/graph.png)
