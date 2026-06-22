@@ -188,7 +188,7 @@ class CreateClassDialog(QDialog):
         parent_name = self.parent_combo.currentText()
         if parent_name and parent_name != "None":
             existing = self.manager.get_extensions_for_parent(parent_name)
-            for ext_name in sorted(existing.keys()):
+            for ext_name in sorted(existing.keys(), key=lambda x: str(x) if x is not None else ""):
                 if ext_name:
                     self.extension_combo.addItem(ext_name)
         if current_text:
