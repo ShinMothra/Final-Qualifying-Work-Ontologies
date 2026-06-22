@@ -53,7 +53,7 @@
 
 **Клонировать репозиторий:**
 ```bash
-git clone https://github.com/<username>/ontology-constructor.git
+git clone https://github.com/ShinMothra/Final-Qualifying-Work-Ontologies.git
 cd ontology-constructor
 ```
 
