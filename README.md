@@ -113,7 +113,20 @@ pyinstaller konstruktor_ontologiy.spec
 
 ## Скриншоты
 
-> *(добавить скриншоты интерфейса)*
+**Стартовая страница**
+![Стартовая страница](docs/screenshots/start_page.png)
+
+**Граф онтологии**
+![Граф онтологии](docs/screenshots/graph.png)
+
+**Подсветка пути между узлами**
+![Подсветка пути](docs/screenshots/path_highlight.png)
+
+**Дерево объектов и боковая панель**
+![Дерево объектов](docs/screenshots/sidebar.png)
+
+**Редактор формул**
+![Редактор формул](docs/screenshots/formula_editor.png)
 
 ---
 
