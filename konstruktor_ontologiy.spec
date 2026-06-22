@@ -18,11 +18,6 @@ from PyInstaller.utils.hooks import collect_data_files
 block_cipher = None
 PROJECT_ROOT = Path(SPECPATH)
 
-# owlready2 хранит Java-ризонеры (Pellet, HermiT — десятки .jar/.class файлов)
-# как данные внутри своих подпапок (pellet/, hermit/, ontos/, pymedtermino2/).
-# Это не Python-код, поэтому статический анализ PyInstaller их не видит и не
-# копирует — без этого реальный краш: FileNotFoundError на owlready2/pellet
-# при первом импорте owlready2.reasoning (см. трейсбек при первом запуске).
 owlready2_datas = collect_data_files('owlready2')
 
 a = Analysis(
@@ -48,8 +43,7 @@ a = Analysis(
     hooksconfig={},
     runtime_hooks=[],
     excludes=[
-        # Эти GUI-тулкиты явно не используются (matplotlib зафиксирован на Agg
-        # в formula_renderer.py) — исключаем, чтобы не раздувать сборку
+        # Эти GUI-тулкиты явно не используются 
         'tkinter',
         'PyQt5',
         'PyQt6',
