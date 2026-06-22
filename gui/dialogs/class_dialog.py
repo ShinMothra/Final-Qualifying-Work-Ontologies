@@ -5,7 +5,7 @@ from PySide6.QtWidgets import (
     QFrame
 )
 from PySide6.QtCore import Qt
-from PySide6.QtGui import QColor
+from PySide6.QtGui import QColor, QIntValidator, QDoubleValidator
 from core.model.elements import ClassElement, EdgeType, PropertyOverride
 from modules.formula_module.formula_editor import FormulaEditorDialog
 import logging
@@ -344,12 +344,28 @@ class CreateClassDialog(QDialog):
             widget = QLineEdit()
             widget.setObjectName("value_input")
             widget.setPlaceholderText("целое число")
+            widget.setValidator(QIntValidator())
             widget.setText(current_val)
+            widget.editingFinished.connect(
+                lambda w=widget: w.setStyleSheet(
+                    "" if w.hasAcceptableInput() or not w.text().strip() else
+                    "border: 1px solid #cc3333;"
+                )
+            )
         elif dp.data_type == DataType.FLOAT:
             widget = QLineEdit()
             widget.setObjectName("value_input")
             widget.setPlaceholderText("дробное число")
+            validator = QDoubleValidator()
+            validator.setNotation(QDoubleValidator.Notation.StandardNotation)
+            widget.setValidator(validator)
             widget.setText(current_val)
+            widget.editingFinished.connect(
+                lambda w=widget: w.setStyleSheet(
+                    "" if w.hasAcceptableInput() or not w.text().strip() else
+                    "border: 1px solid #cc3333;"
+                )
+            )
         else:
             widget = QLineEdit()
             widget.setObjectName("value_input")
